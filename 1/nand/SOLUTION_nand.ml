@@ -37,4 +37,39 @@ let nand3 a b = match(a,b) with
 
 let nand3_2 (a : bool) (b : bool) : bool = match(a,b) with
 	| (true,true) -> false
-	| _ -> true
+	| _ -> true;;
+
+assert(nand1 false false = true);;
+assert(nand1 false true = true);;
+assert(nand1 true false = true);;
+assert(nand1 true true = false);;
+
+assert(nand1_1 false false = true);;
+assert(nand1_1 false true = true);;
+assert(nand1_1 true false = true);;
+assert(nand1_1 true true = false);;
+
+assert(nand2 false false = true);;
+assert(nand2 false true = true);;
+assert(nand2 true false = true);;
+assert(nand2 true true = false);;
+
+assert(nand2_2 false false = true);;
+assert(nand2_2 false true = true);;
+assert(nand2_2 true false = true);;
+assert(nand2_2 true true = false);;
+
+assert(nand2_3 false false = true);;
+assert(nand2_3 false true = true);;
+assert(nand2_3 true false = true);;
+assert(nand2_3 true true = false);;
+
+assert(nand3 false false = true);;
+assert(nand3 false true = true);;
+assert(nand3 true false = true);;
+assert(nand3 true true = false);;
+
+assert(nand3_2 false false = true);;
+assert(nand3_2 false true = true);;
+assert(nand3_2 true false = true);;
+assert(nand3_2 true true = false);;
