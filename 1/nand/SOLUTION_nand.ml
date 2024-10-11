@@ -21,18 +21,20 @@ let nand2 a b = if(a && b) then false else true
 
 let nand2_2 a b = if a then if b then false else true else true
 let nand2_3 (a : bool) (b : bool) : bool =
-  if a
-    then if b
-      then false
-      else true
-    else true
+	if a then
+		if b then
+			false
+		else
+			true
+	else
+		true
 
 let nand3 a b = match(a,b) with
-  | (false,false) -> true
-  | (false,true) -> true
-  | (true,false) -> true
-  | (true,true) -> false
+	| (false,false) -> true
+	| (false,true) -> true
+	| (true,false) -> true
+	| (true,true) -> false
 
 let nand3_2 (a : bool) (b : bool) : bool = match(a,b) with
-  | (true,true) -> false
-  | _ -> true
+	| (true,true) -> false
+	| _ -> true
