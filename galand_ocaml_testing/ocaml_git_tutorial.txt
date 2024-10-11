@@ -1,0 +1,28 @@
+COMANDI DI GIT
+git status		(?) controlla lo status della repository
+git add	<file>	(?) aggiunge i file alla lista dei file da pushare/committare
+git commit		(?) committa in automatico tutti i file addati
+	-am			"a": tutti i file, "m": messaggio
+git push		(?) pusha nella repository 
+git log:		per assicurarsi che sia andato tutto bene
+
+ISTRUZIONI PER OCAML
+utop -init NOMEFILE.ml	apre l'interfaccia di utop con il file selezionato (prima salvare su VSCode)
+
+COMANDI UTOP
+#use "NOMEFILE.ml"	aggiorna il file nell'interfaccia utop
+
+let nand2_3 (a : bool) (b : bool) : bool =
+	if a then
+		if b then
+			false
+		else
+			true
+	else
+		true
+
+let nand2_3 (a : bool) (b : bool) : bool =
+	if a then
+		true
+	else
+		false
