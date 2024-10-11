@@ -39,7 +39,42 @@ let xor3 a b = match (a,b) with
 let xor3_2 a b = match (a,b) with
 	| (false,false) -> false
 	| (true,true) -> false
-	| _ -> true
+	| _ -> true;;
+
+assert(xor1 false false = false);;
+assert(xor1 false true = true);;
+assert(xor1 true false = true);;
+assert(xor1 true true = false);;
+
+assert(xor1_2 false false = false);;
+assert(xor1_2 false true = true);;
+assert(xor1_2 true false = true);;
+assert(xor1_2 true true = false);;
+
+assert(xor1_3 false false = false);;
+assert(xor1_3 false true = true);;
+assert(xor1_3 true false = true);;
+assert(xor1_3 true true = false);;
+
+assert(xor2 false false = false);;
+assert(xor2 false true = true);;
+assert(xor2 true false = true);;
+assert(xor2 true true = false);;
+
+assert(xor2_2 false false = false);;
+assert(xor2_2 false true = true);;
+assert(xor2_2 true false = true);;
+assert(xor2_2 true true = false);;
+
+assert(xor3 false false = false);;
+assert(xor3 false true = true);;
+assert(xor3 true false = true);;
+assert(xor3 true true = false);;
+
+assert(xor3_2 false false = false);;
+assert(xor3_2 false true = true);;
+assert(xor3_2 true false = true);;
+assert(xor3_2 true true = false);;
 
 (*
 ab r
