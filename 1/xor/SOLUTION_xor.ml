@@ -26,7 +26,10 @@ let xor2 a b =
 		then false
 		else true
 
-let xor2_2 (a : bool) (b : bool) : bool =	if a = b then false else true
+let xor2_2 (a : bool) (b : bool) : bool =
+	if a = b
+		then false
+		else true
 
 
 

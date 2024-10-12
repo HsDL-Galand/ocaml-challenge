@@ -34,11 +34,18 @@ let mux2_2 s0 a b =
 	else
 		b
 
+(* Anche questo è corretto, ma meglio non mettere le parentesi se non serve lavorare con le coppie
 let mux2_3 s0 a b = match (s0,a,b) with
 	| (false, _, true) -> true
 	| (false, _, false) -> false
 	| (true, false, _) -> false
-	| (true, true, _) -> true
+	| (true, true, _) -> true*)
+
+let mux2_3 s0 a b = match s0,a,b with
+	| false, _, true -> true
+	| false, _, false -> false
+	| true, false, _ -> false
+	| true, true, _ -> true
 
 ;;
 assert(mux2_1 false false false = false);;
