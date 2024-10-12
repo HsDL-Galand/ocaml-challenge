@@ -34,6 +34,12 @@ let mux2_2 s0 a b =
 	else
 		b
 
+let mux2_2_2 (s0:bool) (a:bool) (b:bool) : bool =
+	if s0 then
+		a
+	else
+		b
+
 (* Anche questo è corretto, ma meglio non mettere le parentesi se non serve lavorare con le coppie
 let mux2_3 s0 a b = match (s0,a,b) with
 	| (false, _, true) -> true
@@ -46,6 +52,10 @@ let mux2_3 s0 a b = match s0,a,b with
 	| false, _, false -> false
 	| true, false, _ -> false
 	| true, true, _ -> true
+
+let mux2_3_2 s0 (a:bool) (b:bool) = match s0 with
+	| true -> a
+	| false -> b
 
 ;;
 assert(mux2_1 false false false = false);;
@@ -74,6 +84,15 @@ assert(mux2_3 true false false = false);;
 assert(mux2_3 true false true = false);;
 assert(mux2_3 true true false = true);;
 assert(mux2_3 true true true = true);;
+
+assert(mux2_3_2 false false false = false);;
+assert(mux2_3_2 false false true = true);;
+assert(mux2_3_2 false true false = false);;
+assert(mux2_3_2 false true true = true);;
+assert(mux2_3_2 true false false = false);;
+assert(mux2_3_2 true false true = false);;
+assert(mux2_3_2 true true false = true);;
+assert(mux2_3_2 true true true = true);;
 
 (*
 s0 a b
