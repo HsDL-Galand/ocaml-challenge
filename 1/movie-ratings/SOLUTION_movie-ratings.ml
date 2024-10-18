@@ -40,6 +40,8 @@ let movie_rating3 rating1 rating2 rating3 =
 let movie_rating rating1 rating2 rating3 =
 	if (rating1<1 || rating1>5) || (rating2<1 || rating2>5) || (rating3<1 || rating3>5) then
 		failwith "Value out of range"
+	else if (rating1 = 5 && rating2 = 5 && rating3 = 5) then
+		"Masterpiece"
 	else if (rating1 + rating2 + rating3) >= 14 then
 		"Highly Recommended"
 	else if ((rating1 + rating2 + rating3) >= 11) &&
@@ -51,7 +53,7 @@ let movie_rating rating1 rating2 rating3 =
 
 
 ;;
-assert(movie_rating 5 5 5 = "Highly Recommended");;	(*15*)
+assert(movie_rating 5 5 5 = "Masterpiece");;	(*15*)
 assert(movie_rating 5 5 4 = "Highly Recommended");;	(*14*)
 assert(movie_rating 5 5 3 = "Recommended");;	(*13*) (*tutti >= 3*)
 assert(movie_rating 5 5 2 = "Mixed Reviews");;	(*12*) (*NON tutti >= 3*)

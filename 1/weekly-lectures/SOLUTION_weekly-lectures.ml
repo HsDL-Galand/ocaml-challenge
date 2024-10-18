@@ -28,13 +28,20 @@ LIP -- -- LL LL --
 type weekday = Mo | Tu | We | Th | Fr
 type course = ALF | LIP
 
-let isLecture d c = match d, c with
 (*let isLecture (d : weekday) (c : course) : bool = match d, c with*)
+let isLecture2 d c = match d, c with
 	| Tu, ALF -> true
 	| We, LIP -> true
 	| Th, _ -> true
 	| Fr, ALF -> true
 	| _, _ -> false
+
+let isLecture d c = match d, c with
+	| Tu, ALF
+	| We, LIP
+	| Th, _
+	| Fr, ALF -> true
+	| _ -> false
 
 ;;
 assert(isLecture Mo ALF = false);;
