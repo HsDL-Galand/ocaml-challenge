@@ -21,10 +21,10 @@ type card = Joker | Val of int
 (* win : card -> card -> bool *)
 (* let win (p : card) (d : card) : bool = true *)
 let win1 p d =
-	if (p<1 || p>10) || (d<1 || d>10) then
+	(*if (p<1 || p>10) || (d<1 || d>10) then
 		failwith("Out of range")
-	else if (p > d) || (Val p=Joker) && not(Val d = Joker) then
-	(* else if (Val p > Val d) || (Val p=Joker) && Val d <> Joker then *)
+	else*) if ((p > d) || (p = Joker)) && not(d = Joker) then
+	(* else if (Val p > Val d) || (Val p=Joker) && Val d <> Joker then *) (*ALTERNATIVA CORRETTA*)
 		true
 	else
 		false
@@ -32,8 +32,8 @@ let win1 p d =
 (* let win2 (Val p) (Val d) =
 	if (Val p<Val 1 || Val p>Val 10) || (Val d<Val 1 || Val d>Val 10) then
 		failwith("Out of range")
-	else if (Val p > Val d) || (Val p=Joker) && not(Val d = Joker) then
-	(* else if (Val p > Val d) || (Val p=Joker) && Val d <> Joker then *)
+	else if (Val p > Val d) || (Val p = Joker) && not(Val d = Joker) then
+	(* else if (Val p > Val d) || (Val p = Joker) && Val d <> Joker then *)
 		true
 	else
 		false *)
@@ -46,6 +46,16 @@ let win3 p d = match p, d with
 	| _ -> false
 
 ;;
+assert(win1 (Joker) (Joker) = false);;
+assert(win1 (Val 3) (Joker) = false);;
+assert(win1 (Joker) (Val 5) = true);;
+
+assert(win1 (Val 1) (Val 1) = false);;
+assert(win1 (Val 1) (Val 2) = false);;
+assert(win1 (Val 2) (Val 1) = true);;
+assert(win1 (Val 8) (Val 9) = false);;
+assert(win1 (Val 10) (Val 9) = true);;
+
 assert(win3 (Joker) (Joker) = false);;
 assert(win3 (Val 3) (Joker) = false);;
 assert(win3 (Joker) (Val 5) = true);;
