@@ -29,3 +29,15 @@ let square x = x * x;;
 assert((comp square double) 3 = 36);;
 assert((comp double square) 3 = 18);;
 assert((comp String.uppercase_ascii String.trim) "hello" = "HELLO");;
+
+(* 
+(* ('a->'b)->('c->'a)->'c->'b *)
+(* (a > b)>(c > a) > c > b *)
+let comp_2 f g = fun x -> f(g x)
+
+(* (a > b)>(int > a) > c > b *)
+	let comp_3 f g = fun 3 -> f(g 3)
+
+(* (a > b)>(Z > a) > Y > b *)
+	let comp_9 f g = fun y -> f(g z)
+*)
