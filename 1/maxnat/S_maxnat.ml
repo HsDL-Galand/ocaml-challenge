@@ -31,9 +31,23 @@ let max_nat a b =
 		else
 			b
 
+
+let max_nat2 a b =
+	if (a < 0 || b < 0)
+		then failwith("Error they both need to be natural numbers")
+	else if (a > b)
+		then a
+		else b
+
 ;;
 assert(max_nat 2 5 = 5);;
 assert(max_nat 5 2 = 5);;
 assert(try max_nat (-2) 5 |> fun _ -> false with _ -> true);;
 assert(try max_nat 2 (-5) |> fun _ -> false with _ -> true);;
 assert(try max_nat (-2) (-5) |> fun _ -> false with _ -> true);;
+
+assert(max_nat2 2 5 = 5);;
+assert(max_nat2 5 2 = 5);;
+assert(try max_nat2 (-2) 5 |> fun _ -> false with _ -> true);;
+assert(try max_nat2 2 (-5) |> fun _ -> false with _ -> true);;
+assert(try max_nat2 (-2) (-5) |> fun _ -> false with _ -> true);;
