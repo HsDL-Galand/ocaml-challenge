@@ -44,6 +44,19 @@ let xor3_2 a b = match (a,b) with
 	| (true,true) -> false
 	| _ -> true;;
 
+
+let xor4_1 a b = a && not b   ||   not a && b
+
+let xor4_2 a b = if (a == b) then false else true (*funziona, MA non dovrebbe essere un generico*)
+
+let xor4_2_2 a b = if (a == not b) then true else false
+
+let xor4_3 a b = match a, b with
+		| false, false -> false
+		| true, true -> false
+		| _ -> true
+;;
+
 assert(xor1 false false = false);;
 assert(xor1 false true = true);;
 assert(xor1 true false = true);;
@@ -78,6 +91,28 @@ assert(xor3_2 false false = false);;
 assert(xor3_2 false true = true);;
 assert(xor3_2 true false = true);;
 assert(xor3_2 true true = false);;
+
+
+assert(xor4_1 false false = false);;
+assert(xor4_1 false true = true);;
+assert(xor4_1 true false = true);;
+assert(xor4_1 true true = false);;
+
+assert(xor4_2 false false = false);;
+assert(xor4_2 false true = true);;
+assert(xor4_2 true false = true);;
+assert(xor4_2 true true = false);;
+
+assert(xor4_2_2 false false = false);;
+assert(xor4_2_2 false true = true);;
+assert(xor4_2_2 true false = true);;
+assert(xor4_2_2 true true = false);;
+
+assert(xor4_3 false false = false);;
+assert(xor4_3 false true = true);;
+assert(xor4_3 true false = true);;
+assert(xor4_3 true true = false);;
+
 
 (*
 ab r
