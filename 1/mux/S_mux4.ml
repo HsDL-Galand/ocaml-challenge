@@ -38,7 +38,14 @@ let mux4_3 s0 s1 a0 a1 a2 a3 = match s0,s1 with
 	| true, false -> a2
 	| true, true -> a3
 
+
+let mux4_2_1 s1 s0 a0 a1 a2 a3 = match s1, s0 with
+	| false, false -> a0
+	| false, true -> a1
+	| true, false -> a2
+	| true, true -> a3
 ;;
+
 assert(not(mux4_1 false false false false false false));;
 assert(mux4_1 false false true false false false);;
 assert(not(mux4_1 false true false false false false));;
@@ -64,3 +71,13 @@ assert(not(mux4_3 true false false false false false));;
 assert(mux4_3 true false false false true false);;
 assert(not(mux4_3 true true false false false false));;
 assert(mux4_3 true true false false false true);;
+
+
+assert(not(mux4_2_1 false false false false false false));;
+assert(mux4_2_1 false false true false false false);;
+assert(not(mux4_2_1 false true false false false false));;
+assert(mux4_2_1 false true false true false false);;
+assert(not(mux4_2_1 true false false false false false));;
+assert(mux4_2_1 true false false false true false);;
+assert(not(mux4_2_1 true true false false false false));;
+assert(mux4_2_1 true true false false false true);;
