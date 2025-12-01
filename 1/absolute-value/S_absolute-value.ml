@@ -35,6 +35,8 @@ let abs2 x =
 
 let abs3 x = if x < 0 then -x else x;;
 
+let abs4 x = if x>0 then x else x * -1;;
+
 ;;
 assert((abs2 0) = 0);;
 assert((abs2 3) = 3);;
@@ -43,3 +45,7 @@ assert((abs2 (-3)) = 3);;
 assert((abs3 0) = 0);;
 assert((abs3 3) = 3);;
 assert((abs3 (-3)) = 3);;
+
+assert((abs4 0) = 0);;
+assert((abs4 3) = 3);;
+assert((abs4 (-3)) = 3);;
