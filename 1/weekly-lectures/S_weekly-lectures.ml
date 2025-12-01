@@ -55,3 +55,30 @@ assert(isLecture Tu LIP = false);;
 assert(isLecture We LIP = true);;
 assert(isLecture Th LIP = true);;
 assert(isLecture Fr LIP = false);;
+
+type weekday2 = Mo | Tu | We | Th | Fr
+type course2 = ALF | LIP
+
+(*
+ALF: Tuesday, Thursday, Friday
+LIP: Wednesday, Thursday
+*)
+
+let isLecture3 d c = match d, c with
+	| (Tu | Fr), ALF  -> true
+	| We, LIP  -> true
+	| Th, _ -> true
+	| _ -> false
+;;
+
+assert(isLecture3 Mo ALF = false);;
+assert(isLecture3 Tu ALF = true);;
+assert(isLecture3 We ALF = false);;
+assert(isLecture3 Th ALF = true);;
+assert(isLecture3 Fr ALF = true);;
+
+assert(isLecture3 Mo LIP = false);;
+assert(isLecture3 Tu LIP = false);;
+assert(isLecture3 We LIP = true);;
+assert(isLecture3 Th LIP = true);;
+assert(isLecture3 Fr LIP = false);;
