@@ -57,7 +57,17 @@ let mux2_3_2 s0 (a:bool) (b:bool) = match s0 with
 	| true -> a
 	| false -> b
 
+
+let mux2_4_1 s0 a b = not(s0)&&b || s0&&a
+
+let mux2_4_2 s0 a b = if s0 then a else b
+
+let mux2_4_3 s0 a b = match s0, a, b with
+	| true, _, _ -> a
+	| false, _, _ -> b
 ;;
+
+
 assert(mux2_1 false false false = false);;
 assert(mux2_1 false false true = true);;
 assert(mux2_1 false true false = false);;
@@ -105,3 +115,30 @@ s0 a b
  1 1 0	1 ----
  1 1 1	1 ----
 *)
+
+assert(mux2_4_1 false false false = false);;
+assert(mux2_4_1 false false true = true);;
+assert(mux2_4_1 false true false = false);;
+assert(mux2_4_1 false true true = true);;
+assert(mux2_4_1 true false false = false);;
+assert(mux2_4_1 true false true = false);;
+assert(mux2_4_1 true true false = true);;
+assert(mux2_4_1 true true true = true);;
+
+assert(mux2_4_2 false false false = false);;
+assert(mux2_4_2 false false true = true);;
+assert(mux2_4_2 false true false = false);;
+assert(mux2_4_2 false true true = true);;
+assert(mux2_4_2 true false false = false);;
+assert(mux2_4_2 true false true = false);;
+assert(mux2_4_2 true true false = true);;
+assert(mux2_4_2 true true true = true);;
+
+assert(mux2_4_3 false false false = false);;
+assert(mux2_4_3 false false true = true);;
+assert(mux2_4_3 false true false = false);;
+assert(mux2_4_3 false true true = true);;
+assert(mux2_4_3 true false false = false);;
+assert(mux2_4_3 true false true = false);;
+assert(mux2_4_3 true true false = true);;
+assert(mux2_4_3 true true true = true);;
