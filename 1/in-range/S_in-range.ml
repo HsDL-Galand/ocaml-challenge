@@ -13,6 +13,10 @@ let in_range x a b =
 	else
 		false
 
+let in_range x a b = match x, a, b with
+	| _ when (x >= a && x <= b) -> true
+	| _ -> false
+
 ;;
 assert(in_range 1 1 1 = true);;
 assert(in_range 2 2 2 = true);;
