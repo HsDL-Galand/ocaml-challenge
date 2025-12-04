@@ -34,3 +34,12 @@ let incr_opt value = match value with
 assert(incr_opt None = None);;
 assert(incr_opt (Some 5) = Some 6);;
 assert(incr_opt (Some (-3)) = Some (-2));;
+
+let incr_opt2 x = match x with
+	| None -> None
+(*	| _ -> Some (x+1)	*) (* Perchè questo è sbagliato? *)
+	| Some x -> Some (x + 1)
+;;
+assert(incr_opt2 None = None);;
+assert(incr_opt2 (Some 5) = Some 6);;
+assert(incr_opt2 (Some (-3)) = Some (-2));;
