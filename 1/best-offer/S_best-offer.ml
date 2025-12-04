@@ -19,7 +19,7 @@ best_offer None (Some 300) None = Some 300
 
 type offer = Some of int | None
 
-let best_offer a b c =
+let best_offer2 a b c =
 	if (a=None && b=None && c=None) then
 		None
 	else if (a>b && a>c) then
@@ -28,6 +28,14 @@ let best_offer a b c =
 		b
 	else
 		c
+;;
+
+let best_offer x y z = match x, y, z with
+	| None, None, None -> None
+	| _ when (x > y &&  x > z) -> x
+	| _ when (y > z) -> y
+	| _ -> z
+;;
 
 (* let best_offer a b c = match a, b, c with
 	| None, None, None -> None
@@ -40,6 +48,14 @@ assert(best_offer (Some 20) (Some 10) (Some 10) = (Some 20));;
 assert(best_offer (Some 10) (Some 30) (Some 10) = (Some 30));;
 assert(best_offer (Some 10) (Some 10) (Some 40) = (Some 40));;
 assert(best_offer (Some 50) (Some 10) (Some 50) = (Some 50));;
+
+assert(best_offer (Some 11) (Some 22) None = (Some 22));;
+assert(best_offer None (Some 22) (Some 33) = (Some 33));;
+assert(best_offer (Some 11) None (Some 33) = (Some 33));;
+
+assert(best_offer (Some 1) None None = (Some 1));;
+assert(best_offer None (Some 2) None = (Some 2));;
+assert(best_offer None None (Some 3) = (Some 3));;
 
 assert(best_offer (Some 100) (Some 200) (Some 150) = Some 200);;
 assert(best_offer (Some 100) None (Some 150) = Some 150);;
