@@ -37,8 +37,9 @@ assert(incr_opt (Some (-3)) = Some (-2));;
 
 let incr_opt2 x = match x with
 	| None -> None
-(*	| _ -> Some (x+1)	*) (* Perchè questo è sbagliato? *)
-	| Some x -> Some (x + 1)
+(*	| _ -> Some (x+1)			*)	(* Perchè questo è sbagliato? Perchè x non è un intero*)
+(*	| Some x -> Some (x + 1)	*)	(* Questo è giusto, perchè x è un intero, MA NON CONVIENE*)
+	| Some y -> Some (y + 1) 		(* Questo è giusto, perchè y è un intero*)
 ;;
 assert(incr_opt2 None = None);;
 assert(incr_opt2 (Some 5) = Some 6);;

@@ -45,6 +45,13 @@ let win3 p d = match p, d with
 	| p, d when p > d -> true
 	| _ -> false
 
+let win4 player dealer = match player, dealer with
+(*	| Joker, Joker -> false *)	(* INUTILE *)
+	| _ , Joker -> false
+	| Joker, _ -> true
+	| Val a, Val b -> a > b		(* alernativa alla riga di sotto *)
+(*	| _ -> player > dealer	*)	(* funziona lo stesso, ma non è molto pulito *)
+
 ;;
 assert(win1 (Joker) (Joker) = false);;
 assert(win1 (Val 3) (Joker) = false);;
@@ -65,3 +72,14 @@ assert(win3 (Val 1) (Val 2) = false);;
 assert(win3 (Val 2) (Val 1) = true);;
 assert(win3 (Val 8) (Val 9) = false);;
 assert(win3 (Val 10) (Val 9) = true);;
+
+
+assert(win4 (Joker) (Joker) = false);;
+assert(win4 (Val 3) (Joker) = false);;
+assert(win4 (Joker) (Val 5) = true);;
+
+assert(win4 (Val 1) (Val 1) = false);;
+assert(win4 (Val 1) (Val 2) = false);;
+assert(win4 (Val 2) (Val 1) = true);;
+assert(win4 (Val 8) (Val 9) = false);;
+assert(win4 (Val 10) (Val 9) = true);;
