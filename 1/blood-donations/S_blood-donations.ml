@@ -27,6 +27,11 @@ let check_groups x y = match x, y with
 	| _ -> x==y								(*scrittura *)*)
 	| _ -> false
 
+let check_groups x y = match x, y with
+	| O, _ -> true
+	| _, AB -> true
+	| _ -> x = y
+
 (*
 x   y	RES
 O   O	true	-
