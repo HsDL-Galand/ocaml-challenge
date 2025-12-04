@@ -47,6 +47,24 @@ let win a b =
 		(* a pari; b dispari *)
 
 
+let is_even x = match x with
+	| _ when (x mod 2 = 0) -> true
+	| _ -> false
+
+let win a b = match a, b with
+	| _ when ((a < 1 || a > 5) && (b < 1 || b > 5)) -> 0
+	| _ when (a < 1 || a > 5) -> -1 
+	| _ when (b < 1 || b > 5) -> 1
+	| _ when (is_even (a+b)) -> 1
+	| _ -> -1
+
+(*
+invalid invalid 0
+_, invalid 1
+invalid, _ (-1)
+*)
+
+
 ;;
 assert(is_even 0 = true);;
 assert(is_even 1 = false);;
