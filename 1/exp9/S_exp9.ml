@@ -22,6 +22,8 @@ let exp9 x = x*x*x*x*x*x*x*x*x
 
 let exp9_1 x = square (square x) * square (square x) * x
 
+let exp9_2 y = square (square (square y)) * y
+
 ;;
 assert(square 2 = 4);;
 assert(square 4 = 16);;
@@ -31,3 +33,6 @@ assert(exp9 3 = 19683);;
 
 assert(exp9_1 2 = 512);;
 assert(exp9_1 3 = 19683);;
+
+assert(exp9_2 2 = 512);;
+assert(exp9_2 3 = 19683);;
