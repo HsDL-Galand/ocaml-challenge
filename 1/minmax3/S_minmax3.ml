@@ -28,6 +28,8 @@ let minmax3 a b c =
 		else
 			c*b
 
+(* minmax3: trova il minore e moltiplicalo per il maggiore *)
+
 let minmax3_2 a b c =
 	if a<b && a<c then
 		(* A minor *)
@@ -48,7 +50,15 @@ let minmax3_2 a b c =
 		else
 			c,b
 
-(* trova il minore e moltiplicalo per il maggiore *)
+
+let minmax3_3 a b c = match a, b, c with
+	| _ when a<b && a<c && b>c -> (a,b)
+	| _ when a<b && a<c && b<c -> (a,c)
+	| _ when b<a && b<c && a>c -> (b,a)
+	| _ when b<a && b<c && a<c -> (b,c)
+	| _ when a>b -> (c,a)
+(*	| _ when a<b -> (c,b)	*)
+	| _ -> (c,b)
 
 ;;
 assert(minmax3 1 2 3 = 1*3);;
@@ -74,3 +84,16 @@ assert(minmax3_2 3 3 3 = (3,3));;
 
 assert(minmax3_2 (-1) (-2) (-3) = ((-3),(-1)));;
 assert(minmax3_2 (-4) (-3) (-2) = ((-4),(-2)));;
+
+
+
+assert(minmax3_3 1 2 3 = (1,3));;
+assert(minmax3_3 3 2 1 = (1,3));;
+assert(minmax3_3 10 30 20 = (10,30));;
+assert(minmax3_3 22 11 33 = (11,33));;
+
+assert(minmax3_3 1 1 1 = (1,1));;
+assert(minmax3_3 3 3 3 = (3,3));;
+
+assert(minmax3_3 (-1) (-2) (-3) = ((-3),(-1)));;
+assert(minmax3_3 (-4) (-3) (-2) = ((-4),(-2)));;
