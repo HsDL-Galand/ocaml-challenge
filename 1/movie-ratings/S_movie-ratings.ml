@@ -44,7 +44,8 @@ let movie_rating rating1 rating2 rating3 =
 		"Masterpiece"
 	else if (rating1 + rating2 + rating3) >= 14 then
 		"Highly Recommended"
-	else if ((rating1 + rating2 + rating3) >= 11) &&
+	else if
+		(*	((rating1 + rating2 + rating3) >= 11) &&	*)	(* questo è superfluo	*)
 			(rating1 >= 3 && rating2 >= 3 && rating3 >= 3) &&
 			(rating1>=4 && rating2>=4) || (rating1>=4 && rating3>=4) || (rating2>=4 && rating3>=4) then
 		"Recommended"
