@@ -41,7 +41,8 @@ type colored_point = {punto : pointX ; colore : colorX}
 
 let same_color cp1 cp2 = cp1.colore = cp2.colore
 
-let recolor cp c = {punto = cp.punto  ; colore = c}
+let recolor colored_point new_color = {colored_point with colore = new_color}
+let recolor_old cp c = {punto = cp.punto  ; colore = c}
 
 (* ASSERT TEST *)
 let p1 = { x = 3.0; y = 4.0 };;
