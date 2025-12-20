@@ -159,3 +159,49 @@ let f20_2 f = fun b -> if (f 3)||b then 1 else 0
 (* let f10_2 f = 3 *)
 
 ;;
+
+(********************************************************** \/ SOLUZIONE 2025 \/ **********************************************************)
+
+let f1 i = i > 0								(* f1 : int -> bool *)
+let f2 b = if b then 1 else 0					(* f2 : bool -> int *)
+let f3 i = (i, i > 0)							(* f3 : int -> (int * bool) *)
+let f4 t = if(snd(t)) then fst(t) else 0		(* f4 : (int * bool) -> int *)
+let f5 i = fun x -> i + x						(* f5 : int -> (int -> int) *)
+let f6 i = fun x -> -i > x						(* f6 : int -> (int -> bool) *)
+let f7 b = fun i -> i>0 && b					(* f7 : bool -> (int -> bool) *)
+let f8 b = fun c -> if(b && c) then 1 else 0	(* f8 : bool -> (bool -> int) *)
+let f9 b = fun i -> if(b) then i else 0			(* f9 : bool -> (int -> int) *)
+let f10 f = (f 3) + 1							(* f10 : (int -> int) -> int *)
+let f11 f = if(f 3) then 1 else 0				(* f11 : (int -> bool) -> int *)
+let f12 f = -(f true)							(* f12 : (bool -> int) -> int *)
+let f13 f = not(f 3)							(* f13 : (int -> bool) -> bool *)
+let f14 f = if(f true) then 1 else 0			(* f14 : (bool -> bool) -> int *)
+let f15 i t = i + fst(t) + snd(t)				(* f15 : int -> (int * int) -> int *)
+let f16 i = fun x -> fun y -> i+x+y				(* f16 : int -> (int -> (int -> int)) *)
+let f17 f = fun i -> (f i) + i					(* f17 : (int -> int) -> (int -> int) *)
+let f18 f = (f (fun i -> -i)) + 1				(* f18 : ((int -> int) -> int) -> int *)
+let f19 f = (fun b -> (f 3) > 0 && not b)		(* f19 : (int -> int) -> (bool -> bool) *)
+let f20 f = fun b -> if(f 3 && b) then 1 else 0	(* f20 : (int -> bool) -> (bool -> int) *)
+
+(********************************************************** \/ GEMINI \/ **********************************************************)
+
+let f1 x = x > 0
+let f2 b = if b then 1 else 0
+let f3 x = (x, true)
+let f4 (x, b) = if b then x else 0
+let f5 x y = x + y
+let f6 x y = x > y
+let f7 b x = b
+let f8 b1 b2 = if b1 && b2 then 1 else 0
+let f9 b x = if b then x else 0
+let f10 f = f 0
+let f11 f = if f 0 then 1 else 0
+let f12 f = f true
+let f13 f = f 0
+let f14 f = if f true then 1 else 0
+let f15 x (y, z) = x + y + z
+let f16 x y z = x + y + z
+let f17 f x = f x
+let f18 f = f (fun x -> x)
+let f19 f b = b
+let f20 f b = if f 0 && b then 1 else 0
