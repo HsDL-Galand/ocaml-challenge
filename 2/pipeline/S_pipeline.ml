@@ -72,11 +72,16 @@ assert("hello" |> String.trim |> String.uppercase_ascii = "HELLO");;
 
 (* (||>) : 'a -> ('a -> 'b) -> 'b *)
 let (||>) a f = f(a)
+let ($) a b f = f a b;;
 
 let (|||>) : 'a -> ('a -> 'b) -> 'b = fun x f -> f x
 
+let (||||>) = fun a f -> f(a) (*fun a f -> f(a)*)
+
 let double x = x * 2;;
 let square x = x * x;;
+let ok x y = x*y;;
+(* assert( 1 $ ok = 5);; *)
 
 assert(3 ||> double = 6);;
 assert(3 ||> square = 9);;
@@ -84,3 +89,32 @@ assert(3 ||> square ||> double = 18);;
 assert(3 ||> double ||> square = 36);;
 assert(3 ||> double ||> square ||> double = 72);;
 assert("hello" ||> String.trim ||> String.uppercase_ascii = "HELLO");;
+
+(*********************************************************** RISOLUZIONE 2025 ***********************************************************)
+
+let (|||||>) x f = f x
+
+let double2 x = x * 2;;
+let square2 x = x * x;;
+
+assert(3 |||||> double2 = 6);;
+assert(3 |||||> square2 = 9);;
+assert(3 |||||> square2 |||||> double2 = 18);;
+assert(3 |||||> double2 |||||> square2 = 36);;
+assert(3 |||||> double2 |||||> square2 |||||> double2 = 72);;
+assert("hello" |||||> String.trim |||||> String.uppercase_ascii = "HELLO");;
+
+(*********************************************************** \/ GEMINI \/ ***********************************************************)
+
+let (|>) x f = f x
+
+(* Assert Tests *)
+let () =
+  let double x = x * 2 in
+  let square x = x * x in
+  assert (3 |> double = 6);
+  assert (3 |> square = 9);
+  assert (3 |> square |> double = 18);
+  assert (3 |> double |> square = 36);
+  assert (3 |> double |> square |> double = 72);
+  assert ("hello" |> String.trim |> String.uppercase_ascii = "HELLO")
