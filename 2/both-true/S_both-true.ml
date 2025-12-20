@@ -52,3 +52,24 @@ let is_even_10 x = x mod 2 = 0;;
 let is_positive_and_even_10 = both_true_10 is_positive_10 is_even_10;;
 assert(is_positive_and_even_10 4 = true);;
 assert(is_positive_and_even_10 3 = false);;
+
+(*********************************************************** RISOLUZIONE 2025 ***********************************************************)
+
+let both_true_2025 p q = fun x -> (p x && q x)
+
+let is_positive x = x > 0;;
+let is_even x = x mod 2 = 0;;
+let is_positive_and_even = both_true_2025 is_positive is_even;;
+assert(is_positive_and_even 4 = true);;
+assert(is_positive_and_even 3 = false);;
+
+(*********************************************************** \/ GEMINI \/ ***********************************************************)
+
+let both_true p q x = p x && q x
+
+(* Assert Tests *)
+let () =
+  let is_positive x = x > 0 in
+  let is_even x = x mod 2 = 0 in
+  assert (both_true is_positive is_even 4);
+  assert (not (both_true is_positive is_even 3))
